@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Baby Care 新生兒衛教智慧問答平台專題介紹">
+<title>Baby Care｜新生兒衛教智慧問答平台</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#home">Baby Care <small>新生兒衛教智慧問答平台</small></a>
+  <button class="menu" aria-label="開啟選單" aria-expanded="false">☰</button>
+  <nav id="nav"><a href="#home">首頁</a><a href="#about">研究背景與動機</a><a href="#workflow">系統流程</a><a href="#results">研究成果</a><a href="#team">專題團隊</a></nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="hero-inner">
+  <div class="visual" role="img" aria-label="新生兒照護主視覺插畫"><span class="moon">☾</span><span class="star">✦</span><div class="blanket"></div><div class="head"><i></i><b></b><em></em></div><div class="body"></div><span class="heart">♡</span></div>
+  <div><p class="eyebrow">BABY CARE PROJECT</p><h1>新生兒衛教<br>智慧問答平台</h1><p class="lead">整合新生兒衛教資料，運用檢索增強生成技術，協助家長查詢照護相關資訊。</p>
+  <div class="meta"><p><strong>指導老師</strong>　羅主斌老師、張漢呈老師</p><p><strong>專題成員</strong>　黃思涵、賴姵均、黃昱嘉、林采諼</p><p><strong>學校系所</strong>　靜宜大學｜資料科學暨大數據分析與應用學系</p></div><a class="hero-link" href="#about">認識我們的專題　↓</a></div>
+</div></section>
+<section class="section summary" id="about"><div class="section-title"><small>PROJECT OVERVIEW</small><h2>專題摘要</h2></div><div class="content">
+<p>新生兒出生後，家長常需要查詢餵食、睡眠、日常照護等相關衛教資訊。然而，衛教資料可能分散在不同文件或影音內容中，增加查找與理解資訊的時間。</p>
+<p>本專題建置新生兒衛教智慧問答平台，整合 PDF 衛教文件、YouTube 影片字幕逐字稿及 TXT 衛教資料，建立可供檢索的知識庫，並結合檢索增強生成（RAG）流程，協助使用者查詢新生兒照護相關資訊。</p><p class="note">本平台提供衛教資訊查詢用途，不能取代醫師診斷或專業醫療建議。</p></div></section>
+<section class="section gray"><div class="section-title"><small>MOTIVATION & GOALS</small><h2>研究背景與動機</h2></div><div class="content"><p>新生兒照護涉及多種日常情境，家長可能需要在不同來源中尋找資訊。若資料缺乏整合，查詢過程可能較不方便，也不容易快速找到與問題相關的內容。</p><div class="cards"><article><span>01</span><h3>即時衛教諮詢</h3><p>協助新生兒家長線上查詢照護相關資訊。</p></article><article><span>02</span><h3>衛教資料整合</h3><p>協助院方集中管理衛教資料，提升查詢效率。</p></article><article><span>03</span><h3>衛教需求分析</h3><p>透過查詢紀錄與問題統計，作為規劃衛教服務的參考。</p></article></div></div></section>
+<section class="section" id="workflow"><div class="section-title"><small>SYSTEM WORKFLOW</small><h2>系統流程與技術</h2></div><div class="content"><p>平台以 RAG（檢索增強生成）為核心，先從衛教知識庫檢索與問題相關的資料，再將資料提供給語言模型產生回答。</p><div class="flow"><article><b>01</b><h3>使用者提問</h3><p>輸入想查詢的新生兒照護問題。</p></article><i>→</i><article><b>02</b><h3>查詢與檢索</h3><p>透過向量搜尋與關鍵字搜尋尋找相關資料。</p></article><i>→</i><article><b>03</b><h3>整理相關內容</h3><p>使用 RRF 與 Reranking 等方法調整候選資料排序。</p></article><i>→</i><article><b>04</b><h3>生成回答</h3><p>語言模型參考檢索內容，生成問答回覆。</p></article></div><div class="tags"><strong>專題使用技術</strong><span>LangChain</span><span>Chroma</span><span>BGE-M3</span><span>Ollama</span><span>GPT-OSS 20B</span><span>Streamlit</span><span>LangGraph Checkpointer</span></div></div></section>
+<section class="section gray"><div class="section-title"><small>KEY FEATURES</small><h2>系統功能特色</h2></div><div class="content cards"><article><h3>多來源衛教知識庫</h3><p>整合 PDF 文件、YouTube 字幕逐字稿及 TXT 衛教資料，經文件載入、文字切割與向量化後提供檢索。</p></article><article><h3>進階 RAG 檢索</h3><p>專題比較 Query Rewriting、向量搜尋、BM25、RRF 與 Reranking 等檢索策略。</p></article><article><h3>多輪對話記憶</h3><p>使用 LangGraph Checkpointer 與 thread_id 保存對話狀態，協助系統延續同一段對話的前後文。</p></article></div></section>
+<section class="section results" id="results"><div class="section-title"><small>EVALUATION & RESULTS</small><h2>研究成果</h2></div><div class="content"><p>依專題簡報所記錄的固定 10 題測試，加入不同檢索策略後，回答依據支持率有所提升。</p><div class="bars"><div><label>Baseline</label><span><i style="width:77%"></i></span><b>77%</b></div><div><label>向量搜尋 + BM25</label><span><i style="width:99%"></i></span><b>99%</b></div><div><label>向量搜尋 + BM25 + RRF + Reranking</label><span><i style="width:100%"></i></span><b>100%</b></div></div><p class="note">以上數值為專題簡報中固定 10 題測試的回答依據支持率，不代表所有問題或真實醫療情境的正確率。</p><h3>未來規劃</h3><ul class="future"><li>完善管理者與使用者系統</li><li>完整對話紀錄保存</li><li>新增圖資料庫</li><li>建立回答時間統計機制</li><li>新增使用者意見回報功能</li></ul></div></section>
+<section class="cta"><h2>體驗 Baby Care 問答平台</h2><p>此處可連結至實際部署的問答系統。</p><a id="system-link" class="disabled" href="#" aria-disabled="true">系統網址尚未設定</a><small>請在 script.js 中填入目前可使用的系統網址。</small></section>
+<section class="team" id="team"><small>OUR TEAM</small><h2>專題團隊</h2><p>指導老師：羅主斌老師、張漢呈老師</p><p>專題成員：黃思涵、賴姵均、黃昱嘉、林采諼</p><p>靜宜大學｜資料科學暨大數據分析與應用學系</p></section>
+</main><footer><span>Baby Care｜新生兒衛教智慧問答平台</span><a href="#home">回到頁首 ↑</a></footer><script src="script.js"></script>
+</body></html>
